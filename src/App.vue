@@ -307,7 +307,7 @@ function handleDeleteProfile() {
 
       <div class="hero-actions">
         <span class="status-chip">
-          当前配置：{{ activeProfile?.name || '未选择配置' }} / 可用候选：{{ totalAvailablePieces }} 件
+          当前配置：{{ activeProfile?.name || '未选择配置' }}
         </span>
         <span class="status-chip" :class="{ 'status-chip--dirty': isDirty }">
           {{ isDirty ? '库存已变动' : '库存未变动' }}

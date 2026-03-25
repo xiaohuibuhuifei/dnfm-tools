@@ -96,9 +96,9 @@ function toggleSpecial(itemId, event) {
 <template>
   <section class="panel inventory-matrix">
     <div class="panel-heading inventory-matrix__heading">
-      <h2 class="panel-title">装备录入</h2>
+      <div class="inventory-matrix__heading-main">
+        <h2 class="panel-title">装备录入</h2>
 
-      <div class="inventory-matrix__toolbar">
         <div class="inventory-matrix__specials">
           <span class="inventory-matrix__toolbar-label">超凡贴膜</span>
           <label
@@ -111,7 +111,9 @@ function toggleSpecial(itemId, event) {
             <span>{{ getSpecialShortName(item) }}</span>
           </label>
         </div>
+      </div>
 
+      <div class="inventory-matrix__toolbar">
         <span class="status-chip">{{ props.totalAvailablePieces }} 件可用候选</span>
       </div>
     </div>
@@ -191,7 +193,16 @@ function toggleSpecial(itemId, event) {
 
 .inventory-matrix__heading {
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.75rem 1rem;
+}
+
+.inventory-matrix__heading-main {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.7rem;
+  min-width: 0;
 }
 
 .inventory-matrix__scroll {
@@ -211,6 +222,7 @@ function toggleSpecial(itemId, event) {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.35rem;
+  min-width: 0;
 }
 
 .inventory-matrix__toolbar-label {
