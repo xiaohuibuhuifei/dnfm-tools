@@ -1,0 +1,178 @@
+:root {
+  --bg: #f6f0e8;
+  --panel: rgba(255, 252, 246, 0.84);
+  --panel-strong: rgba(255, 255, 255, 0.96);
+  --ink: #1d2731;
+  --muted: #5b6672;
+  --accent: #0b7aa8;
+  --danger: #b84552;
+  --shadow: 0 28px 60px rgba(36, 50, 66, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(209, 106, 40, 0.2), transparent 24%),
+    radial-gradient(circle at top right, rgba(11, 122, 168, 0.18), transparent 28%),
+    linear-gradient(180deg, #fbf7f1 0%, var(--bg) 100%);
+  color: var(--ink);
+  font-family: 'Bahnschrift', 'Trebuchet MS', 'Microsoft YaHei UI', sans-serif;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(17, 38, 59, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 38, 59, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 72%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#app {
+  width: 100%;
+}
+
+.app-shell {
+  width: min(1500px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0 1.5rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.panel {
+  position: relative;
+  padding: 0.95rem;
+  border-radius: 22px;
+  border: 1px solid rgba(37, 55, 77, 0.08);
+  background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+  box-shadow: 0 18px 40px rgba(36, 50, 66, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.muted-text {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.action-button,
+.primary-button {
+  border: none;
+  border-radius: 14px;
+  padding: 0.7rem 0.9rem;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.action-button {
+  background: rgba(25, 43, 61, 0.08);
+  color: var(--ink);
+}
+
+.action-button:hover,
+.primary-button:hover {
+  transform: translateY(-1px);
+}
+
+.action-button--danger {
+  color: var(--danger);
+  background: rgba(184, 69, 82, 0.1);
+}
+
+.primary-button {
+  padding-inline: 1.05rem;
+  background: linear-gradient(135deg, #0b7aa8, #156782 68%, #d16a28);
+  color: white;
+  box-shadow: 0 14px 24px rgba(11, 122, 168, 0.16);
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(25, 43, 61, 0.08);
+  color: var(--ink);
+  font-size: 0.82rem;
+}
+
+.status-chip--dirty {
+  background: rgba(209, 106, 40, 0.14);
+  color: #8b4c1c;
+}
+
+.set-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--set-color) 12%, white);
+  color: color-mix(in srgb, var(--set-color) 68%, var(--ink));
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.number-field {
+  width: 100%;
+  min-width: 0;
+  padding: 0.52rem 0.62rem;
+  border: 1px solid rgba(37, 55, 77, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+}
+
+.number-field:focus {
+  outline: 2px solid rgba(11, 122, 168, 0.2);
+  border-color: rgba(11, 122, 168, 0.42);
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    width: min(100%, calc(100% - 1rem));
+    padding-top: 0.55rem;
+  }
+
+  .panel {
+    padding: 0.9rem;
+    border-radius: 18px;
+  }
+
+  .panel-heading {
+    flex-direction: column;
+  }
+}
